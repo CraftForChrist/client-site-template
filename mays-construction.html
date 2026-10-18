@@ -89,13 +89,17 @@
     </div>
   </section>
 
-  <!-- LEAD CAPTURE FORM -->
+  <!-- LEAD CAPTURE FORM WITH DYNAMIC TRACKING -->
   <section id="quote" class="bg-slate-200 py-20 px-6">
     <div class="max-w-xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-300">
       <h3 class="text-2xl font-black text-center text-slate-900 mb-2">Request Your Free Quote</h3>
       <p class="text-slate-500 text-xs text-center mb-8">Fill out the information below. We will reach back out within 15 minutes.</p>
       
       <form action="https://formspree.io/f/mqpedvyg" method="POST" class="space-y-4">
+        <!-- FORMSPREE TRACKING IDENTIFIERS -->
+        <input type="hidden" name="_subject" value="New Lead for May's Construction Company">
+        <input type="hidden" name="client_name" value="May's Construction Company">
+
         <div>
           <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Full Name</label>
           <input type="text" name="name" required class="w-full border border-slate-300 p-3 rounded-lg text-sm focus:ring-2 focus:ring-amber-400 outline-none" placeholder="John Doe">
