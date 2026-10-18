@@ -143,6 +143,31 @@
     if (city) {
       document.querySelectorAll('.dyn-city').forEach(el => el.textContent = city);
     }
+  </script><!-- DYNAMIC URL SCRIPT -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    
+    // Safely decode any URL encoding (like %27 for apostrophes)
+    const rawBiz = params.get('biz');
+    const biz = rawBiz ? decodeURIComponent(rawBiz) : null;
+    const phone = params.get('phone');
+    const city = params.get('city');
+
+    if (biz) {
+      document.querySelectorAll('.dyn-biz').forEach(el => el.textContent = biz);
+      document.title = `${biz} | Service Specialists in ${city || 'Jackson'}`;
+      const subjectInput = document.getElementById('form-subject');
+      const clientInput = document.getElementById('form-client-name');
+      if (subjectInput) subjectInput.value = `New Lead for ${biz}`;
+      if (clientInput) clientInput.value = biz;
+    }
+    if (phone) {
+      document.querySelectorAll('.dyn-phone').forEach(el => el.textContent = phone);
+      document.querySelectorAll('.dyn-phone-link').forEach(el => el.href = `tel:${phone.replace(/[^0-9]/g, '')}`);
+    }
+    if (city) {
+      document.querySelectorAll('.dyn-city').forEach(el => el.textContent = city);
+    }
   </script>
 
 </body>
